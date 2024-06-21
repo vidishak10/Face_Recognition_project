@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System(index_Page)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url("https://tfcertification.s3.amazonaws.com/uploads/face-recognition-tensorflow-01-min.png") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            animation: backgroundMove 30s linear infinite;
+        }
+        @keyframes backgroundMove {
+            0% { background-position: center; }
+            50% { background-position: center 40%; }
+            100% { background-position: center; }
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideInDown 1s ease-in-out;
+        }
+        .header .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #ffcd3a;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .header .logo i {
+            margin-right: 10px;
+            color: #ffcd3a;
+            font-size: 1.5em;
+        }
+        .header .logo:hover {
+            color: #f9a602;
+        }
+        .header .logo .highlight {
+            color: #f9a602;
+        }
+        .header .vk-icon {
+            margin-left: 15px;
+            font-size: 1.5em;
+            color: #0077FF;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .header .vk-icon:hover {
+            color: #0056b3;
+        }
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+       .container {
+    background: rgba(245, 245, 245, 0.9); /* Light grey with some transparency */
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 1.5s ease-in-out;
+    color: #333; /* Dark grey text color for better readability */
+}
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffcd3a;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .custom-file-input {
+            display: none;
+        }
+        .custom-file-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 2px solid #007BFF;
+            background-color: #fff;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s;
+            color: #000; /* Ensure text color is visible */
+        }
+        .custom-file-label i {
+            margin-right: 8px;
+        }
+        .custom-file-label:hover {
+            border-color: #0056b3;
+            background-color: #e0e0e0;
+        }
+        input[type="submit"], .camera-button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: #fff;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            width: 100%;
+        }
+        input[type="submit"]:hover, .camera-button:hover {
+            background: linear-gradient(45deg, #0056b3, #0056b3);
+            transform: scale(1.05);
+        }
+        .camera-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .camera-button i {
+            margin-right: 8px;
+        }
+        .button:hover {
+        background: linear-gradient(45deg, #6a11cb, #2575fc);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-file-label:hover {
+        border-color: #0056b3;
+        background-color: #e0e0e0;
+    }
+
+    /* Add icon animations */
+    .camera-button i {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .camera-button:hover i {
+        transform: rotate(180deg);
+    }
+    .gradient-text {
+        background: linear-gradient(45deg, #4b0082, #00008b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <i class="fas fa-camera"></i> <span class="highlight">Face</span>RecSys
+        </div>
+        <div class="vk-icon">
+            <i class="fab fa-vk"></i>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="gradient-text">Face Recognition System</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file-upload" class="custom-file-label"><i class="fas fa-upload"></i> Choose File</label>
+            <input id="file-upload" type="file" name="file" class="custom-file-input" required>
+            <input type="submit" value="Upload Image" class="button">
+            <a href="/realtime" class="camera-button button">
+                <i class="fas fa-camera"></i> Camera
+            </a>
+        </form>
+    </div>
+    <script>
+        document.querySelector('.custom-file-input').addEventListener('change', function() {
+            const fileName = this.files[0].name;
+            document.querySelector('.custom-file-label').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
